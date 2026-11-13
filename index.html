@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>餓鬼 GAKI — 墨のパックマン</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Ccircle%20cx='16'%20cy='16'%20r='13'%20fill='%2316110d'/%3E%3Cpath%20d='M16%2016L30%2010L30%2022Z'%20fill='%23f4ecdc'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <canvas id="stage"></canvas>
+
+    <!-- ============ HUD ============ -->
+    <div id="hud" aria-hidden="false">
+      <header class="plate plate-title">
+        <div class="title-mark">餓鬼</div>
+        <div class="title-text">
+          <div class="title-main">GAKI</div>
+          <div class="title-sub">墨のパックマン — sumi-e pac-man · PPO</div>
+        </div>
+      </header>
+
+      <section class="plate plate-reward">
+        <div class="label">平均報酬 / mean episode reward</div>
+        <div class="reward-row">
+          <div id="reward-value">0.0</div>
+          <div class="reward-side">
+            <div class="mini"><span id="reward-last">0</span><i>latest</i></div>
+            <div class="mini"><span id="reward-best">0</span><i>best</i></div>
+            <div class="mini"><span id="episode-count">0</span><i>episodes</i></div>
+          </div>
+        </div>
+        <div class="bar"><div id="bar-fill"></div></div>
+      </section>
+
+      <section class="plate plate-graph">
+        <div class="label">報酬曲線 / reward</div>
+        <canvas id="graph"></canvas>
+        <div class="legend"><span class="dot dot-sumi"></span>moving average<span class="dot dot-shu"></span>episode</div>
+      </section>
+
+      <section class="plate plate-status">
+        <div class="label">状態 / state</div>
+        <ul id="status-list"></ul>
+      </section>
+
+      <section class="plate plate-ppo">
+        <div class="label">PPO</div>
+        <ul id="ppo-list"></ul>
+      </section>
+
+      <footer class="plate plate-keys">
+        <span><b>space</b> pause</span><span><b>r</b> new episode</span><span><b>t</b> training speed</span><span><b>arrows</b> drive yourself</span>
+      </footer>
+    </div>
+
+    <!-- ============ HERO ============ -->
+    <div id="hero">
+      <div class="hero-paper">
+        <canvas id="hero-ink"></canvas>
+        <div class="hero-body">
+          <div class="hero-kanji">餓鬼</div>
+          <div class="hero-title">GAKI</div>
+          <div class="hero-rule"></div>
+          <div class="hero-sub">墨のパックマン · A SUMI-E PAC-MAN THAT LEARNS</div>
+          <div class="hero-meta">
+            <span>procedural maze every episode</span>
+            <span>four hunting ghosts</span>
+            <span>PPO reinforcement learning</span>
+          </div>
+          <div class="hero-count"><i>墨が画面に滲む</i><span id="hero-seconds">10</span><i>秒 — ink bleeds onto the paper in</i></div>
+        </div>
+        <div class="hero-seal">墨</div>
+      </div>
+    </div>
+
+    <!-- ============ BANNER ============ -->
+    <div id="banner">
+      <div class="kanji">墨</div>
+      <div class="sub">ink</div>
+    </div>
+
+    <script type="importmap">
+      { "imports": { "three": "./vendor/three.module.js" } }
+    </script>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>

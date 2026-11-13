@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>texture preview</title>
+<style>
+  body { background: #efe7d6; margin: 0; font: 12px monospace; }
+  canvas { display: block; margin: 8px; image-rendering: pixelated; }
+</style>
+<script type="importmap">
+{ "imports": { "three": "/vendor/three.module.js" } }
+</script>
+<script type="module">
+  import { inkStrokeTexture, inkDotTexture, inkDiscTexture, ensoTexture } from "../src/art/textures.js";
+  const put = (tex, w, h) => {
+    const c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    const g = c.getContext("2d");
+    g.fillStyle = "#f6efdd";
+    g.fillRect(0, 0, w, h);
+    g.drawImage(tex.image, 0, 0, w, h);
+    document.body.appendChild(c);
+  };
+  put(inkStrokeTexture(), 1024, 256);
+  put(inkDotTexture(), 128, 128);
+  put(inkDiscTexture(), 256, 256);
+  put(ensoTexture(), 256, 256);
+</script>
