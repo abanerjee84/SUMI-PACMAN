@@ -153,6 +153,9 @@ paper, because backing into a dead end is being eaten next tick.
 
 ![detail](docs/closeup.jpg)
 
+*Four hunters, one mouth, ink dots and enso pellets — every stroke here is a
+tapered shader quad over a procedurally generated brush texture.*
+
 Everything is drawn with three.js in an orthographic scene, but nothing is a
 sprite pasted on a background:
 
