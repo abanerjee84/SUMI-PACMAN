@@ -220,11 +220,11 @@ vendor/               three.js r187 (MIT), vendored so the repo runs offline
 Development probes, all plain node — no framework:
 
 ```bash
-node tools/maze-test.mjs     # maze invariants: connectivity, house, tunnel, pellets
-node tools/maze-debug.mjs    # ASCII dump of a generated maze
-node tools/rl-probe.mjs 8 240  # train headless, then compare greedy / stochastic / random
-node tools/loop-check.mjs    # does the policy travel, or pace in circles?
-node tools/shot.mjs          # screenshot the running page through puppeteer
+node tools/maze-test.mjs        # maze invariants: connectivity, house, tunnel, pellets
+node tools/maze-debug.mjs       # ASCII dump of a generated maze
+node tools/rl-probe.mjs 8 240   # train headless, then compare greedy / stochastic / random
+node tools/loop-check.mjs       # does the policy travel, or pace in circles?
+node tools/shot.mjs             # screenshot the running page through puppeteer
 ```
 
 ---
